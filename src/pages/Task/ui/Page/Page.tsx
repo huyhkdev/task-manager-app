@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined, FileDoneOutlined } from "@ant-design/icons"; // Import FileDoneOutlined icon
 import { AppButton } from "../../../../widgets/AppButton/AppButton";
 import { TodoItem } from "../components/TodoItem";
 import TaskModal from "../components/TaskModal";
@@ -23,7 +23,7 @@ const Task: FC = () => {
     <>
       <section className="flex h-screen">
         <SideBar onFilter={handleFilter} />
-        <div className="flex flex-col w-full bg-gray-200 p-6 lg:p-12">
+        <div className="flex flex-col w-full bg-white p-6 lg:p-12">
           <div className="flex items-center justify-between mb-6">
             <h1 className="text-2xl font-semibold text-gray-800">Task Manager</h1>
             <AppButton
@@ -36,14 +36,21 @@ const Task: FC = () => {
           </div>
 
           <div className="flex flex-col gap-y-6 max-h-[calc(100vh-250px)] overflow-y-auto">
-            {tasks.map((task) => (
-              <TodoItem
-                key={task.id}
-                task={task}
-                handleUpdateTask={handleUpdateTask}
-                handleDeleteTask={handleDeleteTask}
-              />
-            ))}
+            {tasks.length === 0 ? (
+              <div className="flex items-center justify-center gap-2 text-gray-600">
+                <FileDoneOutlined className="text-xl" />
+                <p>No tasks available</p>
+              </div>
+            ) : (
+              tasks.map((task) => (
+                <TodoItem
+                  key={task.id}
+                  task={task}
+                  handleUpdateTask={handleUpdateTask}
+                  handleDeleteTask={handleDeleteTask}
+                />
+              ))
+            )}
           </div>
         </div>
       </section>
