@@ -29,7 +29,7 @@ Built with React, TypeScript, and Redux Toolkit.
 
 1. Install dependencies:
 ```bash
-yarn (to install dependencies)
+yarn
 ```
 
 2. Start the development server:
