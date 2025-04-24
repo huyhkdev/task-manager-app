@@ -1,6 +1,6 @@
 import { AppButton, AppModal } from "@/widgets";
 import { CloseOutlined, DeleteOutlined } from "@ant-design/icons";
-import { FC } from "react";
+import { FC, memo } from "react";
 
 
 interface ConfirmDeleteModalProps {
@@ -9,7 +9,7 @@ interface ConfirmDeleteModalProps {
     onDelete: () => void;
 }
 
-export const ConfirmDeleteModal: FC<ConfirmDeleteModalProps> = ({ open, onCancel, onDelete }) => {
+const ConfirmDeleteModal: FC<ConfirmDeleteModalProps> = ({ open, onCancel, onDelete }) => {
     return (
         <AppModal
             open={open}
@@ -26,3 +26,5 @@ export const ConfirmDeleteModal: FC<ConfirmDeleteModalProps> = ({ open, onCancel
         </AppModal>
     );
 };
+
+export default memo(ConfirmDeleteModal);

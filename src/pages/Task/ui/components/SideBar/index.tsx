@@ -1,5 +1,5 @@
 import { AppstoreAddOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { Filter } from '../../../redux/types';
 import { MenuItem } from './MenuItem';
 
@@ -25,7 +25,7 @@ const MENU_ITEMS = [
   },
 ];
 
-export const SideBar: React.FC<SideBarProps> = ({ onFilter }) => {
+const SideBar: React.FC<SideBarProps> = ({ onFilter }) => {
   const [selected, setSelected] = useState<Filter>('all');
 
   const handleSelect = (filter: Filter) => {
@@ -48,3 +48,4 @@ export const SideBar: React.FC<SideBarProps> = ({ onFilter }) => {
     </aside>
   );
 };
+export default memo(SideBar);

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import{ ReactNode, memo } from "react";
 
 interface AppModalProps {
   open: boolean;
@@ -9,7 +9,7 @@ interface AppModalProps {
   width?: string;
 }
 
-export const AppModal = ({
+const AppModal = ({
   open,
   onClose,
   title,
@@ -42,3 +42,5 @@ export const AppModal = ({
     </>
   );
 };
+
+export default memo(AppModal);

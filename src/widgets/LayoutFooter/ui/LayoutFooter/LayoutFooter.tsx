@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 const LayoutFooter: FC = () => {
   return (
@@ -19,4 +19,4 @@ const LayoutFooter: FC = () => {
   );
 };
 
-export default LayoutFooter;
+export default memo(LayoutFooter);

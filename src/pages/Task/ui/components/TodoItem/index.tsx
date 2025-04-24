@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   ClockCircleOutlined,
@@ -6,7 +6,7 @@ import {
   DeleteOutlined,
 } from '@ant-design/icons';
 
-import { ConfirmDeleteModal } from '../ConfirmDeleteModal';
+import ConfirmDeleteModal from '../ConfirmDeleteModal';
 import TaskModal from '../TaskModal';
 import DateUtils from '@/utils/DateUtils';
 
@@ -19,7 +19,7 @@ interface TodoItemProps {
   className?: string;
 }
 
-export const TodoItem: React.FC<TodoItemProps> = ({
+const TodoItem: React.FC<TodoItemProps> = ({
   task,
   handleUpdateTask,
   handleDeleteTask,
@@ -58,9 +58,8 @@ export const TodoItem: React.FC<TodoItemProps> = ({
     <motion.div
       layout
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className={`card p-4 w-full rounded-lg border shadow-md transition-colors duration-500 relative ${
-        isCompleted ? 'bg-gray-100' : 'bg-white'
-      }`}
+      className={`card p-4 w-full rounded-lg border shadow-md transition-colors duration-500 relative ${isCompleted ? 'bg-gray-100' : 'bg-white'
+        }`}
     >
       <div className="flex gap-2 items-start">
         <input
@@ -74,9 +73,8 @@ export const TodoItem: React.FC<TodoItemProps> = ({
           <div className="flex flex-col">
             <div className="flex items-center gap-2">
               <h2
-                className={`text-lg font-semibold transition-all duration-300 card-title ${
-                  isCompleted ? 'line-through text-gray-400' : 'text-gray-800'
-                }`}
+                className={`text-lg font-semibold transition-all duration-300 card-title ${isCompleted ? 'line-through text-gray-400' : 'text-gray-800'
+                  }`}
               >
                 {task.title}
               </h2>
@@ -91,9 +89,8 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 
             <div className="flex flex-col gap-1 mt-1">
               <p
-                className={`text-sm transition-all duration-300 ${
-                  isCompleted ? 'line-through text-gray-400' : 'text-gray-600'
-                }`}
+                className={`text-sm transition-all duration-300 ${isCompleted ? 'line-through text-gray-400' : 'text-gray-600'
+                  }`}
               >
                 {task.description}
               </p>
@@ -137,3 +134,5 @@ export const TodoItem: React.FC<TodoItemProps> = ({
     </motion.div>
   );
 };
+
+export default memo(TodoItem);

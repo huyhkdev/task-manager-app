@@ -1,1 +1,2 @@
-export * from "./AppButton";
+import AppButton from "./AppButton";
+export { AppButton };

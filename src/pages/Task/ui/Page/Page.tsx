@@ -1,20 +1,21 @@
 import { FC, useState } from "react";
-import { PlusOutlined, FileDoneOutlined } from "@ant-design/icons"; // Import FileDoneOutlined icon
-import { AppButton } from "../../../../widgets/AppButton/AppButton";
-import { TodoItem } from "../components/TodoItem";
+import { PlusOutlined, FileDoneOutlined } from "@ant-design/icons";
+import { AppButton } from "@/widgets";
+import TodoItem from "../components/TodoItem";
 import TaskModal from "../components/TaskModal";
-import type { Filter, TaskI } from "../../redux/types";
-import { useTasks } from "../../hooks/useTasks";
+import SideBar from "../components/SideBar";
 import { useAppDispatch } from "@/app/hooks";
+import { useTasks } from "../../hooks/useTasks";
+import type { Filter, TaskI } from "../../redux/types";
 import { addTask, deleteTask, filterTasks, updateTask } from "../../redux/taskSlice";
-import { SideBar } from "../components/SideBar";
+
 
 const Task: FC = () => {
   const dispatch = useAppDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const tasks = useTasks();
 
-  const handleAddTask = (task: TaskI) => dispatch(addTask(task));
+  const handleAddTask =(task: TaskI) => dispatch(addTask(task));
   const handleUpdateTask = (task: TaskI) => dispatch(updateTask(task));
   const handleDeleteTask = (id: string) => dispatch(deleteTask(id));
   const handleFilter = (filter: Filter) => dispatch(filterTasks(filter));
@@ -23,7 +24,7 @@ const Task: FC = () => {
     <>
       <section className="flex h-screen">
         <SideBar onFilter={handleFilter} />
-        <div className="flex flex-col w-full bg-white p-6 lg:p-12">
+        <div className="flex flex-col w-full bg-white p-6 ">
           <div className="flex items-center  justify-end sm:justify-between mb-6">
             <h1 className=" hidden sm:block text-2xl font-semibold text-gray-800">Task List</h1>
             <AppButton

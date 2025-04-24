@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 
 const LayoutHeader: FC = () => {
   return (
@@ -12,4 +12,4 @@ const LayoutHeader: FC = () => {
   );
 };
 
-export default LayoutHeader;
+export default memo(LayoutHeader);

@@ -1,7 +1,6 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState, memo } from "react";
 import { CloseOutlined, PlusOutlined, EditOutlined } from "@ant-design/icons";
-import { AppButton } from "../../../../../widgets/AppButton/AppButton";
-import { AppModal } from "@/widgets";
+import { AppButton, AppModal } from "@/widgets";
 import type { TaskI, Priority } from "../../../redux/types";
 import TaskFormFields from "./TaskFormFields";
 
@@ -130,4 +129,4 @@ const TaskModal: FC<TaskModalProps> = ({
   );
 };
 
-export default TaskModal;
+export default memo(TaskModal);
