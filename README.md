@@ -37,6 +37,10 @@ yarn
 yarn dev
 ```
 
+3. Run the unit test:
+```bash
+yarn test
+```
 4. Open your browser and visit `http://localhost:5173`
 
 ## Project Structure
