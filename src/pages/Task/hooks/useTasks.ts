@@ -11,7 +11,7 @@ export const useTasks = () => {
     if (tasks.length === 0) {
       dispatch(getTasks());
     }
-  }, [dispatch, tasks.length]);
+  }, [dispatch]);
 
   const priorityOrder: Record<Priority, number> = useMemo(() => ({
     "": 4,   
