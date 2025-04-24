@@ -24,8 +24,8 @@ const Task: FC = () => {
       <section className="flex h-screen">
         <SideBar onFilter={handleFilter} />
         <div className="flex flex-col w-full bg-white p-6 lg:p-12">
-          <div className="flex items-center justify-between mb-6">
-            <h1 className="text-2xl font-semibold text-gray-800">Task List</h1>
+          <div className="flex items-center  justify-end sm:justify-between mb-6">
+            <h1 className=" hidden sm:block text-2xl font-semibold text-gray-800">Task List</h1>
             <AppButton
               icon={<PlusOutlined />}
               text="New Task"
